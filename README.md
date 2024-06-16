@@ -73,3 +73,39 @@ And now continue:
 ![alt](running-2.png)
 
 ### 2. Run the Unit Tests with Jacoco coverage
+
+- a. Run the tests and coverage:
+
+./mvnw clean test jacoco:report
+
+-b. See the Jacoco Report:
+![alt](jacoco-1.png)
+
+Nothing about service layer, and the Controller doesn't test the NotFound:
+
+![alt](jacoco-2.png)
+
+### 3. Run the Integration Tests with Jacoco coverage
+
+- a. Run tests with verify, where Integration tests are included and Unit don't
+
+./mvnw clean verify jacoco:report
+
+-b. Results of Jacoco:
+![alt](jacoco-3.png)
+
+Coverage 100%, including service...but it is just Integration Tests.
+
+### 4. Improve Unit Tests
+
+- a. Get the second step Tag:
+
+- b. Run the tests and coverage:
+
+./mvnw clean test jacoco:report
+
+- c. See the Jacoco Report:
+![alt](jacoco-4.png)
+
+Now we have 100% coverage!
+
