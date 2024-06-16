@@ -80,8 +80,7 @@ public class CourseControllerTest {
     @Test
     public void testUpdateCourse() throws Exception {
         Course existingCourse = new Course(1L, "Course 1", "Description 1");
-        Course updatedCourse = new Course(1L, "Updated Course",
-                "Updated Description");
+        Course updatedCourse = new Course(1L, "Updated Course", "Updated Description");
 
         when(courseService.getCourseById(1L)).thenReturn(Optional.of(existingCourse));
         when(courseService.saveCourse(any(Course.class))).thenReturn(updatedCourse);
@@ -95,6 +94,15 @@ public class CourseControllerTest {
 
         verify(courseService, times(1)).getCourseById(1L);
         verify(courseService, times(1)).saveCourse(any(Course.class));
+
+        // Capture the argument passed to saveCourse
+        ArgumentCaptor<Course> courseCaptor = ArgumentCaptor.forClass(Course.class);
+        verify(courseService).saveCourse(courseCaptor.capture());
+        Course savedCourse = courseCaptor.getValue();
+
+        // Verify that the fields have been updated
+        assertThat(savedCourse.getName()).isEqualTo("Updated Course");
+        assertThat(savedCourse.getDescription()).isEqualTo("Updated Description");
     }
 
     @Test

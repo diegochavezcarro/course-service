@@ -100,6 +100,8 @@ Coverage 100%, including service...but it is just Integration Tests.
 
 - a. Get the second step Tag:
 
+git checkout tags/step-2-basic-functionality
+
 - b. Run the tests and coverage:
 
 ./mvnw clean test jacoco:report
@@ -109,3 +111,33 @@ Coverage 100%, including service...but it is just Integration Tests.
 
 Now we have 100% coverage!
 
+### 5. Execute Mutation Tests
+
+- a. Execute mutation tests:
+
+./mvnw org.pitest:pitest-maven:mutationCoverage
+
+- b. Result of the Mutation:
+
+![alt](pit-1.png)
+![alt](pit-2.png)
+
+We can try this, just by commenting the 44 and 45 lines of the CourseController, and the tests will be ok!, as if it were fine.
+
+### 6. Improve Unit Tests
+
+- a. Get the second step Tag:
+
+git checkout tags/step-3-full-coverage-and-mutation-ok
+
+- b. Run the tests and coverage:
+
+./mvnw clean test jacoco:report
+
+- c. Execute mutation tests:
+
+./mvnw org.pitest:pitest-maven:mutationCoverage
+
+- d. Result of the Mutation:
+
+![alt](pit-3.png)
