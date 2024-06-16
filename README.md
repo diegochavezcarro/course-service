@@ -27,7 +27,7 @@ Provides end-to-end testing scenarios.
 ### The Testing Pyramid
 The Testing Pyramid is a conceptual framework that highlights the different levels of testing required for a robust software application. It emphasizes having a large number of unit tests, fewer integration tests, and even fewer end-to-end tests.
 
-![alt](test-pyramid)
+![alt](test-pyramid.png)
 
 **Explanation of the Testing Pyramid:**
 
