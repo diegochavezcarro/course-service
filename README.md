@@ -130,7 +130,7 @@ We can try this, just by commenting the 44 and 45 lines of the CourseController,
 
 git checkout main
 
-- b. Run the tests and coverage:
+- b. Run the latest step from main:
 
 ./mvnw clean test jacoco:report
 
