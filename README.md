@@ -45,3 +45,21 @@ The Testing Pyramid is a conceptual framework that highlights the different leve
 **Integration Tests:** Make up the middle layer. They test the interactions between components and are fewer in number compared to unit tests.
 
 **End-to-End Tests:** Sit at the top of the pyramid. They test the application as a whole, from the user interface to the data layer. These tests are fewer because they are slower and more complex to maintain.
+
+## Steps for this exercice
+
+### 1. Execute and test the app
+
+- a. Run the App:
+
+./mvnw clean install -U
+
+./mvnw spring-boot:run
+
+- b. See the results with Postman:
+
+![alt](running-1.png)
+
+![alt](running-2.png)
+
+### 2. Run the Unit Tests with Jacoco coverage

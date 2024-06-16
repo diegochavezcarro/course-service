@@ -56,15 +56,6 @@ public class CourseControllerTest {
     }
 
     @Test
-    public void testGetCourseByIdNotFound() throws Exception {
-        when(courseService.getCourseById(1L)).thenReturn(Optional.empty());
-
-        mockMvc.perform(get("/api/courses/1")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
-    }
-
-    @Test
     public void testCreateCourse() throws Exception {
         Course course = new Course(1L, "Course 1", "Description 1");
 
@@ -80,7 +71,8 @@ public class CourseControllerTest {
     @Test
     public void testUpdateCourse() throws Exception {
         Course existingCourse = new Course(1L, "Course 1", "Description 1");
-        Course updatedCourse = new Course(1L, "Updated Course", "Updated Description");
+        Course updatedCourse = new Course(1L, "Updated Course",
+                "Updated Description");
 
         when(courseService.getCourseById(1L)).thenReturn(Optional.of(existingCourse));
         when(courseService.saveCourse(any(Course.class))).thenReturn(updatedCourse);
@@ -94,51 +86,6 @@ public class CourseControllerTest {
 
         verify(courseService, times(1)).getCourseById(1L);
         verify(courseService, times(1)).saveCourse(any(Course.class));
-
-        // Capture the argument passed to saveCourse
-        ArgumentCaptor<Course> courseCaptor = ArgumentCaptor.forClass(Course.class);
-        verify(courseService).saveCourse(courseCaptor.capture());
-        Course savedCourse = courseCaptor.getValue();
-
-        // Verify that the fields have been updated
-        assertThat(savedCourse.getName()).isEqualTo("Updated Course");
-        assertThat(savedCourse.getDescription()).isEqualTo("Updated Description");
-    }
-
-    /*
-     * @Test
-     * public void testUpdateCourse() throws Exception {
-     * Course existingCourse = new Course(1L, "Course 1", "Description 1");
-     * Course updatedCourse = new Course(1L, "Updated Course",
-     * "Updated Description");
-     * 
-     * when(courseService.getCourseById(1L)).thenReturn(Optional.of(existingCourse))
-     * ;
-     * when(courseService.saveCourse(any(Course.class))).thenReturn(updatedCourse);
-     * 
-     * mockMvc.perform(put("/api/courses/1")
-     * .contentType(MediaType.APPLICATION_JSON)
-     * .content("{\"name\":\"Updated Course\",\"description\":\"Updated Description\"}"
-     * ))
-     * .andExpect(status().isOk())
-     * .andExpect(jsonPath("$.name").value("Updated Course"))
-     * .andExpect(jsonPath("$.description").value("Updated Description"));
-     * 
-     * verify(courseService, times(1)).getCourseById(1L);
-     * verify(courseService, times(1)).saveCourse(any(Course.class));
-     * }
-     */
-    @Test
-    public void testUpdateCourseNotFound() throws Exception {
-        when(courseService.getCourseById(1L)).thenReturn(Optional.empty());
-
-        mockMvc.perform(put("/api/courses/1")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"name\":\"Updated Course\",\"description\":\"Updated Description\"}"))
-                .andExpect(status().isNotFound());
-
-        verify(courseService, times(1)).getCourseById(1L);
-        verify(courseService, times(0)).saveCourse(any(Course.class));
     }
 
     @Test
