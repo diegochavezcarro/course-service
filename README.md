@@ -20,9 +20,18 @@ This project is a Spring Boot application that manages courses. It provides REST
 
 **Benefits of Integration Testing:**
 
-Validates the interaction between integrated components.
-Detects interface issues between modules.
-Provides end-to-end testing scenarios.
+- Validates the interaction between integrated components.
+- Detects interface issues between modules.
+- Provides end-to-end testing scenarios.
+
+### End-to-End (E2E) Testing
+**End-to-End (E2E)** Testing involves testing the entire application flow from start to finish to ensure that the system as a whole works as expected. These tests simulate real user scenarios and validate that the system meets the requirements.
+
+**Benefits of E2E Testing:**
+
+- Validates the entire application workflow.
+- Ensures that the system meets business requirements.
+- Detects issues that may not be found in unit or integration tests.
 
 ### The Testing Pyramid
 The Testing Pyramid is a conceptual framework that highlights the different levels of testing required for a robust software application. It emphasizes having a large number of unit tests, fewer integration tests, and even fewer end-to-end tests.
@@ -32,5 +41,7 @@ The Testing Pyramid is a conceptual framework that highlights the different leve
 **Explanation of the Testing Pyramid:**
 
 **Unit Tests:** Form the base of the pyramid. They are fast, numerous, and provide a solid foundation by testing individual components in isolation.
+
 **Integration Tests:** Make up the middle layer. They test the interactions between components and are fewer in number compared to unit tests.
+
 **End-to-End Tests:** Sit at the top of the pyramid. They test the application as a whole, from the user interface to the data layer. These tests are fewer because they are slower and more complex to maintain.
