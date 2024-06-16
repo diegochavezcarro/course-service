@@ -52,6 +52,16 @@ The Testing Pyramid is a conceptual framework that highlights the different leve
 
 - a. Run the App:
 
+Get all tags, just in case.
+
+git fetch --all --tags
+
+Select the first one:
+
+git checkout tags/step-1-initial-setup
+
+And now continue:
+
 ./mvnw clean install -U
 
 ./mvnw spring-boot:run
