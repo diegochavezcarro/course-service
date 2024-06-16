@@ -1,4 +1,4 @@
-# Course Service Project
+# Unit, Integration and Mutation Testing Project
 
 ## Overview
 
@@ -15,18 +15,22 @@ This project is a Spring Boot application that manages courses. It provides REST
 - Provides documentation for the code.
 - Facilitates changes and simplifies integration.
 
-**Example of a Unit Test:**
-```java
-@Test
-public void testGetCourseById() {
-    Course course = new Course(1L, "Course 1", "Description 1");
+### Integration Testing
+**Integration Testing** involves testing the interactions between different components or modules of an application to ensure they work together correctly. These tests are typically more extensive than unit tests and may involve a real or simulated environment.
 
-    when(courseRepository.findById(1L)).thenReturn(Optional.of(course));
+**Benefits of Integration Testing:**
 
-    Optional<Course> foundCourse = courseService.getCourseById(1L);
+Validates the interaction between integrated components.
+Detects interface issues between modules.
+Provides end-to-end testing scenarios.
 
-    assertThat(foundCourse.isPresent()).isTrue();
-    assertThat(foundCourse.get().getName()).isEqualTo("Course 1");
+### The Testing Pyramid
+The Testing Pyramid is a conceptual framework that highlights the different levels of testing required for a robust software application. It emphasizes having a large number of unit tests, fewer integration tests, and even fewer end-to-end tests.
 
-    verify(courseRepository, times(1)).findById(1L);
-}
+![alt](test-pyramid)
+
+**Explanation of the Testing Pyramid:**
+
+**Unit Tests:** Form the base of the pyramid. They are fast, numerous, and provide a solid foundation by testing individual components in isolation.
+**Integration Tests:** Make up the middle layer. They test the interactions between components and are fewer in number compared to unit tests.
+**End-to-End Tests:** Sit at the top of the pyramid. They test the application as a whole, from the user interface to the data layer. These tests are fewer because they are slower and more complex to maintain.
