@@ -126,7 +126,7 @@ We can try this, just by commenting the 44 and 45 lines of the CourseController,
 
 ### 6. Improve Unit Tests
 
-- a. Get the second step Tag:
+- a. Get the final code:
 
 git checkout main
 
