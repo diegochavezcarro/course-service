@@ -42,6 +42,18 @@ The Testing Pyramid is a conceptual framework that highlights the different leve
 
 **Unit Tests:** Form the base of the pyramid. They are fast, numerous, and provide a solid foundation by testing individual components in isolation.
 
+Characteristics of a good unit test
+
+Fast: It isn't uncommon for mature projects to have thousands of unit tests. Unit tests should take little time to run. Milliseconds.
+
+Isolated: Unit tests are standalone, can be run in isolation, and have no dependencies on any outside factors such as a file system or database.
+
+Repeatable: Running a unit test should be consistent with its results, that is, it always returns the same result if you don't change anything in between runs.
+
+Self-Checking: The test should be able to automatically detect if it passed or failed without any human interaction.
+
+Timely: A unit test shouldn't take a disproportionately long time to write compared to the code being tested. If you find testing the code taking a large amount of time compared to writing the code, consider a design that is more testable.
+
 **Integration Tests:** Make up the middle layer. They test the interactions between components and are fewer in number compared to unit tests.
 
 **End-to-End Tests:** Sit at the top of the pyramid. They test the application as a whole, from the user interface to the data layer. These tests are fewer because they are slower and more complex to maintain.
